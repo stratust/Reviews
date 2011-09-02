@@ -3,6 +3,7 @@ use Moose;
 use namespace::autoclean;
 
 use Catalyst::Runtime 5.80;
+use Sys::Hostname;
 
 # Set flags and add plugins for the application.
 #
@@ -17,9 +18,16 @@ use Catalyst::Runtime 5.80;
 #                 directory
 
 use Catalyst qw/
-    -Debug
-    ConfigLoader
+    ConfigLoader::Multi
+    +CatalystX::SimpleLogin
     Static::Simple
+	Unicode::Encoding
+	Authentication
+	Authorization::Roles
+	Session
+	Session::State::Cookie
+	Session::Store::FastMmap
+    Compress
 /;
 
 extends 'Catalyst';
@@ -35,10 +43,58 @@ our $VERSION = '0.01';
 # with an external configuration file acting as an override for
 # local deployment.
 
+# Getting hostname
+my ($host) = Sys::Hostname::hostname() =~ m/^([^\.]+)/;
+
+# Putting Events in the @INC
+$ENV{'PERL5LIB'} .= ':' . __PACKAGE__->path_to('../Events/lib');
+
 __PACKAGE__->config(
     name => 'Reviews',
     # Disable deprecated behavior needed by old applications
     disable_component_resolution_regex_fallback => 1,
+    using_frontend_proxy   => 1,
+    default_view           => 'TT',
+    'Plugin::ConfigLoader' => {
+        file                => __PACKAGE__->path_to('../Events/conf/'.'events_'
+        . $host.'.conf'),
+    },
+    ENCODING => 'utf-8',
+    # To add another path do static plugin
+    #static   => {
+        #include_path =>
+          #[ '/work/submission', Events->config->{root} ],
+    #},
+
+    'Plugin::Authentication'                    => {
+        default => {
+            credential => {
+                class          => 'Password',
+                password_type  => 'clear',
+                password_field => 'reviewer_password',
+            },
+            store => {
+                class                     => 'DBIx::Class',
+                user_model                => 'EventsDB::Reviewer',
+                role_relation             => 'roles',
+                role_field                => 'role',
+                use_userdata_from_session => '0'
+            }
+        }
+    },
+    'Controller::Login' => {
+        login_form_args => {
+            authenticate_username_field_name => 'reviewer_email',
+            authenticate_password_field_name => 'reviewer_password',
+        }
+      },
+   'Plugin::Session' => { 
+       # Never expires while window is open and logged in
+       expires => 10000000000, # Forever 
+       # expires when close the browser
+       cookie_expires => 0, 
+   },
+
 );
 
 # Start the application
