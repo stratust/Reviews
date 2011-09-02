@@ -1,0 +1,100 @@
+<div id="dialog-info" title="Mais Informações" style="display:none;">
+</div>
+
+<div class="pager">
+	<div class="pager_inner_left">
+		Mostrando registro [% entry_start %] até  [% entry_end %] de [%	total_entries %].
+	</div>
+	<div class="pager_inner_right">
+		<form name='myform' method='post' action=''>
+		Página 
+		<select onchange="document.myform.submit();" name="page">
+			[% FOREACH page IN [1..total_pages] %]
+			<option value="[% page %]" [% IF page == current_page %]selected='selected' [% END %]>[% page %]</option>
+			[% END %]
+		</select>
+
+		de [% total_pages %]
+		</form>
+
+	</div>
+</div>
+
+
+<table>
+	<thead>
+		<tr>
+			<th>#</th>
+			<th><a href="[% c.uri_for('/admin')%]?order=id">ID</a></th>
+			<th><a href="[% c.uri_for('/admin')%]?order=topic">Tópico</a></th>
+			<th><a href="[% c.uri_for('/admin')%]?order=subtopic">Subtópico</a></th>
+			<th><a href="[% c.uri_for('/admin')%]?order=title">Título</a></th>
+			<th><a href="[% c.uri_for('/admin')%]?order=score">Média</a></th>
+			<th>&nbsp;</th>
+		</tr>
+		</thead>
+	<tbody>
+
+        [% i = entry_start %]
+		[% FOREACH row IN rows %]
+		<tr>
+			<td class="[% IF loop.index % 2 %]alt[% END %]">[% i %]</td>
+			<td class="[% IF loop.index % 2 %]alt[% END %]">[% row.event_poster_id %]</td>
+			<td class="[% IF loop.index % 2 %]alt[% END %]">[% row.event_poster.event_topic.event_topic_name %]</td>
+			<td class="[% IF loop.index % 2 %]alt[% END %]">[% row.event_poster.event_subtopic.event_subtopic_name %]</td>
+		<td class="[% IF loop.index % 2 %]alt[% END %]"><a href="[% c.uri_for('/pdf/' _
+			row.event_poster_id ) %]">[%
+			row.event_poster.event_poster_title FILTER upper %]</a></td>
+	        <td class="[% IF loop.index % 2 %]alt[% END %]" style="text-align:center;">
+                [% IF row.get_column('current_score_number') ==
+                row.get_column('expected_score_number') %]
+                    [% row.get_column('avg') %]
+                [% ELSE %]
+                    Sem Média
+                [% END %]
+            </td>
+            <td class="[% IF loop.index % 2 %]alt[% END %]" style="text-align:center;">
+                [% IF row.get_column('current_score_number') ==
+                row.get_column('expected_score_number') %]
+                    [% IF row.get_column('avg') >= 3 %]
+                        <img src="[% c.uri_for('/static/images/event/common/green.png')%]" />
+                    [% ELSE %]
+                        <img src="[% c.uri_for('/static/images/event/common/red.png')%]" />
+                    [% END %]
+                [% ELSE %]
+                        <img src="[% c.uri_for('/static/images/event/common/wait.png')%]" />
+                [% END %]
+
+            </td>
+            <td class="[% IF loop.index % 2 %]alt[% END %]" style="text-align:center;">
+                <a onclick="info('[% c.uri_for('/admin/moreinfo')%]/[%
+                row.event_poster_id%]');" href="javascript:void(0);"">Mais Info</a>
+
+            </td>
+
+		</tr>
+
+        [% i = i + 1 %]
+		[% END %]
+	</tbody>
+</table>
+
+<div class="pager">
+	<div class="pager_inner_left">
+		Mostrando registro [% entry_start %] até  [% entry_end %] de [%	total_entries %].
+	</div>
+	<div class="pager_inner_right">
+		<form name='myform_bottom' method='post' action=''>
+		Página 
+		<select onchange="document.myform_bottom.submit();" name="page">
+			[% FOREACH page IN [1..total_pages] %]
+			<option value="[% page %]" [% IF page == current_page %]selected='selected' [% END %]>[% page %]</option>
+			[% END %]
+		</select>
+
+		de [% total_pages %]
+		</form>
+
+	</div>
+</div>
+

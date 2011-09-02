@@ -1,0 +1,83 @@
+    [%- IF no_wrapper -%]
+    [% content %]
+    [%- ELSE -%]
+<?xml version="1.0" encoding="UTF-8"?>
+    <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+    <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+    <head>
+	<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+	<meta http-equiv="Cache-control" content="no-store"  />
+	<meta http-equiv="Pragma" content="no-cache"  />
+	<meta http-equiv="Expires" content="-1"  />
+    <title>[% template.title or "Hemo " _ event_edition _ " - Avaliações"
+    %]</title>
+	<link rel="stylesheet" href="[% c.uri_for('/static/css/event/event_admin.css') %]" />
+	<link rel="stylesheet" href="[% c.uri_for('/static/css/forms.css') %]" />
+    <link rel="stylesheet" href="[% c.uri_for('/static/css/Aristo/jquery-ui-1.8rc3.custom.css') %]" />
+ 
+	<script type="text/javascript" >
+		var ie_img = "[% c.uri_for('/static/images/no-ie6.png')%]";
+	</script>
+    <script type="text/javascript" src="[% c.uri_for('/static/js/jquery-1.4.2.min.js') %]"></script>
+    <script type="text/javascript" src="[% c.uri_for('/static/js/ui/jquery-ui-1.8.4.custom.min.js') %]"></script>
+	<script type="text/javascript" src="[% c.uri_for('/static/js/jquery.ie6blocker.js') %]"></script>
+	<script type="text/javascript" src="[% c.uri_for('/static/js/jquery.form.js') %]"></script>
+    <script type="text/javascript" src="[% c.uri_for('/static/js/jquery.validate.js') %]"></script>
+    <script type="text/javascript" src="[% c.uri_for('/static/js/review/admin.js') %]"></script>
+
+    </head>
+    
+	<body>
+				<div id="page_container">
+						<div id="forma">
+								<div id="header">
+                                   <div class="header_title">Hemo [%
+                                    event_edition %]: Área de Avaliações</div>
+								</div>
+								<div class="forma_header_menu">
+								<!-- AVAILABLE COLORS -->
+								<!-- aqua, blue, gray, lime, orange, pink, purple, red -->
+
+								<!-- TO APPLY A COLOR CHOICE -->
+								<!-- Change the color class on the first div to one of the above mentioned colors -->
+
+								<div class="menu bubplastic horizontal blue">
+										<ul>
+											[% IF c.user_exists %]
+                                            [% IF
+                                            c.check_user_roles('Administrator') %]
+											<li><span class="menu_r"><a href="[%
+                                            c.uri_for('/admin') %]"><span
+                                            class="menu_ar">Área Administrativa</span></a></span></li>
+                                            [% ELSE %]
+											<li><span class="menu_r"><a href="[%
+                                            c.uri_for('/review') %]"><span
+                                            class="menu_ar">Posters</span></a></span></li>
+                                            [% END %]
+											<li><span class="menu_r"><a href="[%
+                                            c.uri_for('/logout') %]?event=[%
+                                            event_edition %]"><span
+                                            class="menu_ar">Sair</span></a></span></li>
+											[% END %]
+										</ul>
+								</div>
+								</div>
+								<div id="middle">
+									[% content %]
+								</div>
+								<div id="footer_line_up"> 
+								</div>
+								
+								<div id="footer">
+
+								</div>
+								<div id="footer_line_down"> 
+								</div>
+							
+						</div>
+
+				</div>
+	
+	</body>
+	</html>
+[%- END %]

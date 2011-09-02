@@ -1,0 +1,480 @@
+
+body {
+    margin: 10px;
+    font-size: 11px;
+    font-family: Verdana;
+    background-color: #666666;
+}
+table {
+		font-size: 11px;
+		font-family: Verdana;
+		margin: 0;
+		padding: 0;
+
+}
+h3 {
+		color: #026838;	
+}
+#page_container {
+		width: 100%;
+		min-width: 995px;
+		margin-right: auto;
+		margin-left: auto;
+}
+#header {
+		margin-left: auto;
+		margin-right: auto;
+		width: 100%;
+		height: 80px;
+/*		background-image: url("../../images/event/2010/header_top.jpg");*/
+
+	background: #005B9A;
+}
+.header_title{
+    color: #ffffff;
+    font-size: 25px;
+    padding: 20px 20px 20px 20px;
+    font-family: Verdana, Helvetica, Arial;
+    font-weight: bold;
+}
+
+.menu {
+		font-size: 12px;
+		/*border-bottom: solid 9px #e3dc72;*/
+
+}
+
+#footer {
+		clear:both;
+		margin-right: auto;
+		background-color: white;
+		margin-left: auto;
+		height: 75px;
+}
+#footer_line_up{
+	height: 2px;
+	margin-left: 30px;
+	margin-right: 30px;
+	background-color:#383431;
+	margin-bottom: 10px;
+	clear: both;
+	background: #005B9A;
+
+}
+#footer_line_down{
+	height: 10px;
+	background-color:#383431;
+	background: #005B9A;
+}
+
+#forma {
+		background-color: white;
+		width: 100%;
+		margin-right: auto;
+		margin-left: auto;
+
+}
+
+.forma_header_menu{
+	height: 59px;
+	clear:both;
+}
+
+#sponsors_left {
+	/* position: absolute;*/
+	float: left;
+	width: 140px;
+	min-height: 420px;
+	margin-top: 5px;
+	margin-left: 0px;
+}
+
+#space_bef_left_sponsors{
+
+	height: 5px;
+
+
+}
+
+#sponsors_pic{
+	width: 80px;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+#middle {
+		background-color: white;
+/*		margin-top: 40px;*/
+		min-height: 320px;
+		padding: 10px 20px 10px 20px;
+		text-align:justify;
+		font-family:Verdana;
+		font-size:12px;
+}
+
+.emph{
+		font-weight: bold;
+		color: #000EAF;
+}
+.green, .title {
+		color: #026838;
+}
+
+.title{
+	font-weight: bold;
+	font-family: Verdana;
+}
+
+
+
+
+/* Committee */
+
+
+div .block1 {
+	width: 48%;
+	float:left;
+}
+div .block2 {
+	width: 48%;
+	float:left;
+	margin-left: 2%;
+}
+div .block3 {
+	width: 50%;
+	float:left;
+}
+div .block4 {
+	width: 50%;
+	float:left;
+}
+
+
+div .break{
+	width: 100%;
+	float: none;
+	margin-top: 90px;
+}
+
+/* Registration.php*/
+
+.insc, .course {
+		text-align:center;
+		width: 730px;
+		margin-top: 10px;
+		margin-left: auto;
+		margin-right: auto;
+		border: solid 1px gray;	
+		border-collapse:collapse;
+}
+
+.insc th, .course th {
+		text-align:center;
+		border-bottom: 1px solid gray;
+}
+
+.insc .title {
+	color: #FFFFFF;
+	background-color: #000000;
+}
+
+.course .title {
+	color: #FFFFFF;
+	background-color: gray;
+}
+
+div .event_member{
+}
+
+.two_column {
+		text-align:center;
+		font-weight: bold;
+}
+
+/* Registration */
+.block legend {
+		background-color:#026838;
+		border:1px solid #000000;
+		color:#FFFFFF;
+		font-weight:bold;
+		padding:2px 4px;
+}
+
+/* Login configuration */
+
+.login_header  {
+		background-color:#4D4D4D;
+		border:1px solid #7F7F7F;
+		color:#FFFFFF;
+		margin:0 auto 2px;
+		padding:5px;
+		text-align:center;
+		width:300px;
+}
+
+.login {
+		background-color:#BFBFBF;
+		border:1px solid #7F7F7F;
+		margin:0 auto;
+		padding:5px;
+		width:300px;
+}
+.login table{
+	width: 300px;
+}
+
+
+.clearit {
+	margin: 0;
+	padding: 0;
+	height: 0;
+	clear: both;
+}
+
+/* BUBBLE PLASTIC HORIZONTAL MENU */
+
+.bubplastic.horizontal {
+	/*width: 100%;*/
+	height: 27px;
+	margin: 0;
+	padding: 0;
+	background: #000000 url(../../images/event/menu/bg-bubplastic.gif) top left repeat-x;
+}
+.bubplastic.horizontal ul {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+.bubplastic.horizontal ul li {
+	float: left;
+	margin: 0;
+	padding: 0;
+	background: transparent url(../../images/event/menu/bg-bubplastic-button.gif) top left no-repeat;
+}
+
+.bubplastic.horizontal ul li a {
+	display: block;
+	height: 27px;
+	padding-left: 15px;
+	float: left;
+	text-transform: uppercase;
+	font-family: "Helvetica Neue",helvetica,"microsoft sans serif",arial,sans-serif;
+	font-size: 70%;
+	color: #FFFFFF;
+	text-decoration: none;
+}
+
+.bubplastic.horizontal ul li a span.menu_ar {
+	display: block;
+	float: left;
+	height: 22px;
+	padding-top: 5px;
+	padding-right: 15px;
+	background: transparent url(../../images/event/menu/bg-bubplastic-button.gif) top right no-repeat;
+	cursor: pointer;
+}
+/* END BUBBLE PLASTIC HORIZONTAL MENU */
+
+
+/* AQUA HOVER */
+.bubplastic.aqua ul li a:hover,
+.bubplastic.aqua ul li.highlight a {
+	background: transparent url(../../images/event/menu/bg-bubplastic-h-aqua.gif) top left no-repeat;
+}
+.bubplastic.aqua ul li a:hover span.menu_ar,
+.bubplastic.aqua ul li.highlight a span.menu_ar {
+	background: transparent url(../../images/event/menu/bg-bubplastic-h-aqua.gif) top right no-repeat;
+}
+
+
+/* BLUE HOVER */
+.bubplastic.blue ul li a:hover,
+.bubplastic.blue ul li.highlight a {
+	background: transparent url(../../images/event/menu/bg-bubplastic-h-blue.gif) top left no-repeat;
+}
+.bubplastic.blue ul li a:hover span.menu_ar,
+.bubplastic.blue ul li.highlight a span.menu_ar {
+	background: transparent url(../../images/event/menu/bg-bubplastic-h-blue.gif) top right no-repeat;
+}
+
+
+/* GRAY HOVER */
+.bubplastic.gray ul li a:hover,
+.bubplastic.gray ul li.highlight a {
+	background: transparent url(../../images/event/menu/bg-bubplastic-h-gray.gif) top left no-repeat;
+}
+.bubplastic.gray ul li a:hover span.menu_ar,
+.bubplastic.gray ul li.highlight a span.menu_ar {
+	background: transparent url(../../images/event/menu/bg-bubplastic-h-gray.gif) top right no-repeat;
+}
+
+
+/* LIME HOVER */
+.bubplastic.lime ul li a:hover,
+.bubplastic.lime ul li.highlight a {
+	background: transparent url(../../images/event/menu/bg-bubplastic-h-lime.gif) top left no-repeat;
+}
+.bubplastic.lime ul li a:hover span.menu_ar,
+.bubplastic.lime ul li.highlight a span.menu_ar {
+	background: transparent url(../../images/event/menu/bg-bubplastic-h-lime.gif) top right no-repeat;
+}
+
+
+/* ORANGE HOVER */
+.bubplastic.orange ul li a:hover,
+.bubplastic.orange ul li.highlight a {
+	background: transparent url(../../images/event/menu/bg-bubplastic-h-orange.gif) top left no-repeat;
+}
+.bubplastic.orange ul li a:hover span.menu_ar,
+.bubplastic.orange ul li.highlight a span.menu_ar {
+	background: transparent url(../../images/event/menu/bg-bubplastic-h-orange.gif) top right no-repeat;
+}
+
+
+/* PINK HOVER */
+.bubplastic.pink ul li a:hover,
+.bubplastic.pink ul li.highlight a {
+	background: transparent url(../../images/event/menu/bg-bubplastic-h-pink.gif) top left no-repeat;
+}
+.bubplastic.pink ul li a:hover span.menu_ar,
+.bubplastic.pink ul li.highlight a span.menu_ar {
+	background: transparent url(../../images/event/menu/bg-bubplastic-h-pink.gif) top right no-repeat;
+}
+
+
+/* PURPLE HOVER */
+.bubplastic.purple ul li a:hover,
+.bubplastic.purple ul li.highlight a {
+	background: transparent url(../../images/event/menu/bg-bubplastic-h-purple.gif) top left no-repeat;
+}
+.bubplastic.purple ul li a:hover span.menu_ar,
+.bubplastic.purple ul li.highlight a span.menu_ar {
+	background: transparent url(../../images/event/menu/bg-bubplastic-h-purple.gif) top right no-repeat;
+}
+
+
+/* RED HOVER */
+.bubplastic.red ul li a:hover,
+.bubplastic.red ul li.highlight a {
+	background: transparent url(../../images/event/menu/bg-bubplastic-h-red.gif) top left no-repeat;
+}
+.bubplastic.red ul li a:hover span.menu_ar,
+.bubplastic.red ul li.highlight a span.menu_ar {
+	background: transparent url(../../images/event/menu/bg-bubplastic-h-red.gif) top right no-repeat;
+}
+
+/* Table */
+
+a {
+	/*color: #c75f3e;*/
+	color: #005B9A;
+
+}
+
+td a:visited {
+	color: #43067C;
+    text-decoration: none;
+}
+
+.admintable {
+	padding: 0;
+	margin: 0;
+    border-spacing:0;
+	width: 100%;
+}
+
+caption {
+	padding: 0 0 5px 0;
+	width: 700px;	 
+	font: italic 11px "Trebuchet MS", Verdana, Arial, Helvetica, sans-serif;
+	text-align: right;
+}
+
+th {
+	font: bold 11px "Trebuchet MS", Verdana, Arial, Helvetica, sans-serif;
+	color: #4f6b72;
+	color: #ffffff;
+/*	border-right: 1px solid #C1DAD7;
+	border-bottom: 1px solid #C1DAD7;
+	border-top: 1px solid #C1DAD7; */
+	letter-spacing: 2px;
+	text-transform: uppercase;
+	padding: 2px 4px 2px 4px;
+    text-align: center;
+	background: #CAE8EA url(../../images/bg_header.jpg) repeat-x;
+    background-color:#0191C8;
+}
+
+th a {
+    color: #ffffff;
+}
+
+th.nobg {
+	border-top: 0;
+	border-left: 0;
+	border-right: 1px solid #C1DAD7;
+	background: none;
+}
+
+td {
+/*	border-right: 1px solid #C1DAD7; 
+	border-bottom: 1px solid #C1DAD7; */
+	background: #fff;
+	padding: 1px 4px 1px 4px; 
+	color: #4f6b72;
+    color: #000000;
+}
+
+
+td.alt {
+	background: #D6DFFF;
+	color: #000000;
+}
+
+th.spec {
+	border-left: 1px solid #C1DAD7;
+	border-top: 0;
+	background: #fff url(../../images/bullet1.gif) no-repeat;
+	font: bold 10px "Trebuchet MS", Verdana, Arial, Helvetica, sans-serif;
+}
+
+th.specalt {
+	border-left: 1px solid #C1DAD7;
+	border-top: 0;
+	background: #f5fafa url(../../images/bullet2.gif) no-repeat;
+	font: bold 10px "Trebuchet MS", Verdana, Arial, Helvetica, sans-serif;
+	color: #797268;
+}
+.center {
+    text-align: center;
+}
+
+.pager {
+	padding: 0 15px 0 15px;
+	margin: 15px 0 15px 0;
+	height: 30px;
+	background: gray;
+	color: #FFFFFF;
+	font-weight: bold;
+}
+
+.pager_inner_left{
+		width: auto; 
+		float: left;
+		height: 30px;
+		padding-top: 0.5em;
+}
+.pager_inner_right{
+		width: auto; 
+		float: right;
+		padding-top: 0.2em;
+
+}
+
+.info {
+    margin-bottom: 5px;
+}
+
+.info legend {
+    font-weight: bold;
+}

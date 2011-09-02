@@ -1,0 +1,6 @@
+# Not track sqlite3 databases
+*.db
+# Not track config files
+conf/*.conf
+
+data/*

@@ -1,0 +1,59 @@
+<fieldset class="info">
+<legend>Informações do Inscrito</legend>
+<table>
+	<tr>
+		<td><b>Inscrito ID:</b></td>
+		<td>[% poster.member.member_id%]</td>
+	</tr>
+	<tr>
+		<td><b>Nome:</b></td>
+		<td>[% poster.member.name FILTER upper %]</td>
+	</tr>
+	<tr>
+		<td><b>E-mail:</b></td>
+		<td>[% poster.member.email %]</td>
+	</tr>
+</table>
+</fieldset>
+
+<fieldset class="info">
+<legend>Informações do Resumo</legend>
+<table>
+	<tr>
+		<td><b>Tópico:</b></td>
+		<td>[% poster.event_topic.event_topic_name%]</td>
+	</tr>
+	<tr>
+		<td><b>Sub-tópico:</b></td>
+		<td>[% poster.event_subtopic.event_subtopic_name%]</td>
+	</tr>
+	<tr>
+		<td><b>Título:</b></td>
+		<td>[% poster.event_poster_title FILTER upper %]</td>
+	</tr>
+</table>
+</fieldset>
+
+<fieldset class="info">
+<legend>Informações sobre Avaliadores</legend>
+<table>
+    <tr>
+        <th>ID</th>
+        <th>Avaliador(a)</th>
+        <th>Nota</th>
+    </tr>
+    [% FOREACH row IN reviewers %]
+	<tr>
+		<td>[% row.reviewer.reviewer_id %]</td>
+		<td>[% row.reviewer.reviewer_name FILTER upper %]</td>        
+		<td>
+        [% IF row.status %]
+            [% row.score %]
+        [% ELSE %]
+            Aguardando...
+        [% END %]
+        </td>
+	</tr>
+    [% END %]
+</table>
+</fieldset>

@@ -1,0 +1,76 @@
+[%- USE Latex;
+     FILTER latex("pdf") -%]
+	
+\documentclass[a4paper,11pt]{article}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Controlando as margens
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage[left=3cm,top=3cm,right=2cm,bottom=2cm,nohead,nofoot]{geometry}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Configurando o idioma e os acentos
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage{ucs}
+\usepackage[usenames,dvips]{color}
+\usepackage[utf8x]{inputenc}
+
+[% IF lang == 'pt' %]
+\usepackage[brazil]{babel}
+[% ELSE %]
+\usepackage[english]{babel}
+[% END %]
+\usepackage[T1]{fontenc}
+\usepackage{times}
+\usepackage{textcomp}
+\usepackage{amsmath}    % need for subequations
+\usepackage{amsfonts}  %note how statements can be commented out
+\usepackage{amssymb}
+\usepackage{wasysym}
+
+% Fonte sem serifa
+%\renewcommand*\familydefault{\sfdefault} %% Only if the base font of the
+
+
+\usepackage{url} % Coloca quebra de linhas em URLs
+
+% Colocando figuras em background (deixar resumo bonitinho)
+\usepackage{wallpaper}
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Configurando as Figuras
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\usepackage[pdftex]{color,graphicx} % Utilizado para colocar figuras jpg, png e
+%\DeclareGraphicsExtensions{.gif,.png}
+
+\begin{document}
+
+
+% Não mostra número nem cabeçalho
+\thispagestyle{empty}
+
+[% UNLESS finalized %]
+	[% IF c.path_to %]
+		\CenterWallPaper{0.8}{[% c.path_to %]/root/src/pdf/not_finalized.pdf}
+	[% ELSE %]
+		\CenterWallPaper{0.8}{[% root_dir %]/root/src/pdf/not_finalized.pdf}
+	[% END %]
+[% END %]
+
+\begin{center}
+\uppercase{
+[% abstract_title  %]
+}
+\end{center}
+\begin{flushleft}
+[% authors %]
+\vspace{1em}
+[% institutions %]
+\end{flushleft}
+[% abstract_body  %]
+
+
+
+\end{document}
+[%- END -%]

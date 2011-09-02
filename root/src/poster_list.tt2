@@ -1,0 +1,96 @@
+<div id="dialog-confirm" title="Nota" style="display:none;">
+    <p><span class="ui-icon ui-icon-alert" style="float:left; margin:0 7px 20px 0;"></span>Deseja dar a nota X ao resumo? Lembre-se que a nota não pode ser mudada posteriormente!</p>
+</div>
+
+<div>
+Olá [% c.user.get('reviewer_name')%],<br/>
+Você tem [% not_reviewed %] poster(s) de [% total_entries %] para avaliar.
+</div>
+
+<div class="pager">
+	<div class="pager_inner_left">
+		Mostrando registro [% entry_start %] até  [% entry_end %] de [%	total_entries %].
+	</div>
+	<div class="pager_inner_right">
+		<form name='myform' method='post' action=''>
+		Página 
+		<select onchange="document.myform.submit();" name="page">
+			[% FOREACH page IN [1..total_pages] %]
+			<option value="[% page %]" [% IF page == current_page %]selected='selected' [% END %]>[% page %]</option>
+			[% END %]
+		</select>
+
+		de [% total_pages %]
+		</form>
+
+	</div>
+</div>
+
+
+<table>
+	<thead>
+		<tr>
+			<th>#</th>
+			<th><a href="[% c.uri_for('/')%]?order=id">ID</a></th>
+			<th><a href="[% c.uri_for('/')%]?order=topic">Tópico</a></th>
+			<th><a href="[% c.uri_for('/')%]?order=subtopic">Subtópico</a></th>
+			<th><a href="[% c.uri_for('/')%]?order=title">Título</a></th>
+			<th><a href="[% c.uri_for('/')%]?order=score">Nota</a></th>
+		</tr>
+		</thead>
+	<tbody>
+
+        [% i = entry_start %]
+		[% FOREACH row IN rows %]
+		<tr>
+			<td class="[% IF loop.index % 2 %]alt[% END %]">[% i %]</td>
+			<td class="[% IF loop.index % 2 %]alt[% END %]">[% row.event_poster_id %]</td>
+			<td class="[% IF loop.index % 2 %]alt[% END %]">[% row.event_poster.event_topic.event_topic_name %]</td>
+			<td class="[% IF loop.index % 2 %]alt[% END %]">[% row.event_poster.event_subtopic.event_subtopic_name %]</td>
+		<td class="[% IF loop.index % 2 %]alt[% END %]"><a href="[% c.uri_for('/pdf/' _
+			row.event_poster_id ) %]">[%
+			row.event_poster.event_poster_title FILTER upper %]</a></td>
+	        <td class="[% IF loop.index % 2 %]alt[% END %]" style="text-align:center;">
+                [% IF row.status == 1 %]
+                    [% row.score %]
+                [% ELSE %]
+		        <form name='form[% i %]' id='form[% i %]' method='post' action=''>
+                    <select name="score"  onchange="confirm_score($(this).val(),'form[% i %]');" >
+                        <option value="">Selecione...</option>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                    </select>
+                    <input type="hidden" name="page" value="[% current_page%]" />
+                    <input type="hidden" name="score_poster_id" value="[% row.event_poster_id %]" />
+                </form>
+                [% END %]
+            </td>
+
+		</tr>
+
+        [% i = i + 1 %]
+		[% END %]
+	</tbody>
+</table>
+
+<div class="pager">
+	<div class="pager_inner_left">
+		Mostrando registro [% entry_start %] até  [% entry_end %] de [%	total_entries %].
+	</div>
+	<div class="pager_inner_right">
+		<form name='myform_bottom' method='post' action=''>
+		Página 
+		<select onchange="document.myform_bottom.submit();" name="page">
+			[% FOREACH page IN [1..total_pages] %]
+			<option value="[% page %]" [% IF page == current_page %]selected='selected' [% END %]>[% page %]</option>
+			[% END %]
+		</select>
+
+		de [% total_pages %]
+		</form>
+
+	</div>
+</div>
+

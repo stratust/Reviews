@@ -1,0 +1,64 @@
+/* Date Picker Jquery UI hack to modal forms */
+
+#ui-datepicker-div
+    {
+        z-index: 9999999;
+    }
+
+
+/* Configuring Web Forms */
+
+.myform{
+	width: 600px;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+div.space {
+	height: 25px;
+}
+
+.label {
+  float: left;
+  width: 14em;
+  font-weight : bold;
+}
+input, textarea, select {
+	/* width: 180px; */
+	margin-bottom: 0.7em;
+	border: 1px solid gray;
+	padding: 1px;
+}
+
+span.error_message {
+		color: #f00;
+		font-weight:bold;
+		margin-left: 0.5em;
+
+}
+
+.error {
+		color: #f00;
+		font-weight:bold;
+
+}
+/* Configuring Jquery error messages */
+	    label.error {
+
+		color: #f00;
+		font-weight:bold;
+		margin-left: 0.5em;
+    }
+
+/* Configurin login form */
+
+.login {
+	width: 300px;
+	padding: 5px;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.login input.submit {
+	text-align: center;
+}
